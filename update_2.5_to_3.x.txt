@@ -1,0 +1,13 @@
+The recommended process is:
+
+1 - Take a backup of your old site (e.g. Joomla! 1.x, 2.5, 3.0, 3.1, 3.2) using Akeeba Backup.
+2 - Download the backup archive to your computer using FTP in binary transfer mode. Keep additional copies of the backup archive in separate locations such as USB flash drive, network attached storage (NAS), an on-line storage service (e.g. Dropbox, Box, SugarSync, ...), optical media (CD/DVD) etc. Keep multiple copies. It's best to be safe than sorry.
+3 - Restore your backup archive on your local server, using Akeeba Kickstart to extract it.
+4 - Perform the migration to Joomla! 3 per the documentation of the third party Joomla! migration component you chose to use.
+5 - Make sure your migrated site performs correctly.
+6 - Take a backup of the migrated Joomla! 3 site using Akeeba Backup. Keep additional copies of the backup archive in separate locations such as USB flash drive, network attached storage (NAS), an on-line storage service (e.g. Dropbox, Box, SugarSync, ...), optical media (CD/DVD) etc. Keep multiple copies. It's best to be safe than sorry.
+7 - Triple check that you DO have copies of the backups of your site, before and after the migration. Then check again. If things go awry you'll definitely need those backups!
+8 - Remove all files and folders and database tables from your live server.
+9 - Restore the backup of the migrated Joomla! 3 site to your live server.
+10 - Make sure your site works properly.
+11 - If the site doesn't work properly, repeat steps 8 through 10 using the backup of your original site (before the migration). Now you see why we're so paranoid on having multiple copies of your backups.
