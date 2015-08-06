@@ -1,0 +1,31 @@
+How to remove captionjs in joomla 2.5
+
+in the file: “/components/com_content/controller.php” we just comment out:
+
+JHtml::_('behavior.caption');
+
+
+
+---
+OR
+---
+
+put this in index.php <-- important to be there
+
+
+// remove the js files
+    $search = array('mootools-more.js', 'caption.js', 'mootools-core.js', 'validate.js');
+    foreach($this->_scripts as $key => $script) {
+        foreach($search as $findme) {
+            if(stristr($key, $findme) !== false) {
+                unset($this->_scripts[$key]);
+            }
+        }
+    }
+	
+// remove the caption script
+	if (isset($this->_script['text/javascript'])){
+   $this->_script['text/javascript'] = preg_replace('%window\.addEvent\(\'load\',\s*function\(\)\s*{\s*new\s*JCaption\(\'img.caption\'\);\s*}\);\s*%', '', $this->_script['text/javascript']);
+   if (empty($this->_script['text/javascript']))
+      unset($this->_script['text/javascript']);
+}
