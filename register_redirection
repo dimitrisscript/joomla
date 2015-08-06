@@ -1,0 +1,13 @@
+Open file:
+components/com_users/controllers/registration.php
+
+Scroll down to the very bottom. Starting line 162 
+
+First one (index.php?option=com_users&view=registration&layout=complete) is executed after user registration if account has to be activated by an administrator
+Second (index.php?option=com_users&view=registration&layout=complete), if account has to be activated by user
+Third (index.php?option=com_users&view=login), if account activation is not required.
+
+Replace links depending on type of registration you use with FULL URL of your redirection page and you are done.
+For example, if user activation on my website is not required and I want to redirect users after registration to http://www.mywebsite.com/welcome-reg the updated code will be:
+
+$this->setRedirect(JRoute::_('http://www.mywebsite.com/welcome-reg', false));
